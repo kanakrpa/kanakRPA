@@ -1,0 +1,325 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Evita el desplazamiento lateral */
+}
+body {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    background-color: #fffafa;
+    color: rgb(9, 9, 9);
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    header {
+        display: flex;
+        flex-direction: column; /* Asegura que los elementos se acomoden en columna */
+        align-items: flex-start; /* Alinea la logo a la izquierda */
+        justify-content: flex-start;
+        text-align: left;
+        padding: 10px;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        margin-left: 0; /* Evita margen innecesario */
+    }
+
+    .logo img {
+        max-width: 50px; /* Ajusta el tamaño del logo en móvil */
+        height: auto;
+    }
+    nav {
+        width: 100%; /* Para que el menú ocupe todo el ancho */
+        text-align: center;
+        margin-top: 10px;
+    }
+    nav ul {
+        width: 100%;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+
+    nav ul li a {
+        font-size: 1rem;
+        padding: 10px;
+        display: block;
+        width: 100%;
+    }
+
+    .hero {
+        text-align: center;
+        
+    }
+
+    .hero h1{
+        font-size: 5px;
+        padding-top: 20%;
+        padding-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 13px !important; 
+        margin-bottom: 10px;
+    }
+    .beneficio-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .beneficio {
+        width: 20%;  /* Ajusta el ancho de los beneficios */
+        max-width: 350px;
+        text-align: center;
+    }
+    .info{
+    }
+    .info p{
+        text-align: justify;
+    }
+
+    .contacto input, .contacto textarea {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .contacto button {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Encabezado */
+header {
+    position: fixed;
+    top: 0; /* Alinea el encabezado al borde superior */
+    left: 0; /* Alinea el encabezado al borde izquierdo */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background-color: #fffafa;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(9, 9, 9);
+    -webkit-box-shadow: 0px 10px 42px -23px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 42px -23px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 42px -23px rgba(0,0,0,0.75);
+}
+
+.logo {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+nav{
+    width: 0%;
+    justify-items: end;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: rgb(9, 9, 9);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nave, li a:hover{
+    text-decoration: underline; 
+    text-decoration-thickness: 2px; 
+    
+  }
+.logo img{
+    width: 35px;
+    height: auto;
+    margin-right: 10px;
+    vertical-align: middle; 
+  }
+  
+.heroContenedor{
+    background: linear-gradient(to left, #003e8f, #62eef6);
+}
+/* Hero */
+.hero {
+    text-align: center;
+    padding-top: 20%;
+    padding-bottom: 10%;
+    color: white;
+}
+.hero h1{
+    padding-bottom: 15px;
+    font-size: 46px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.hero p{
+    padding-bottom: 13px;
+    font-size: 1.125rem;
+    font-weight: 500px;
+}
+.hero button {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 8px 8px 8px 8px;
+}
+
+.hero button:hover {
+    background-color: #5ce0e6;
+    color: black;
+}
+
+/* Secciones */
+.info {
+    line-height: 1.8;
+    text-align: center;
+    background-color: #fffafa;
+    padding: 5% 15%;
+}
+
+.info h3{
+    font-style: italic;
+    font-weight: 10px; 
+}
+
+.beneficios{
+    justify-self: center;
+    justify-items: center;
+    width: 80%;
+}
+.hola{
+    background-color: #fffafa;
+}
+.beneficio-container {
+    width: 900px;
+    height: 100%;
+    padding-bottom: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 80px;
+}
+
+.beneficio {
+    background: #f6f6f6;
+    padding: 80px 30px 30px 30px;
+    height: 30%;
+    border-radius: 5px;
+    width: calc(50% - 10px);
+    max-width: 250px; 
+    text-align: center;
+    border: slategray;
+}
+
+.beneficio:nth-child(2){
+    padding-bottom: 40px;
+}
+
+.beneficio:nth-child(3){
+    padding-bottom: 60px;
+}
+
+
+.beneficio h4{
+    color: #003e8f;
+    padding-bottom: 8px;
+}
+.beneficio p{
+    line-height: 1.6;
+}
+.beneficio p:hover {
+    transform: scale(1.10);
+    color: #003e8f;
+}
+.beneficio img{
+    background-color: #ffffff;
+    width: 50px;
+    border-radius: 28px;
+}
+.contacto {
+    text-align: center;
+    padding: 50px;
+    color: white;
+    background: linear-gradient(to left, #003e8f, #62eef6);
+}
+
+.contacto form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contacto input,
+.contacto textarea {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+.contacto button {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: 0.3s; 
+    border-radius: 8px 8px 8px 8px;
+}
+
+.contacto button:hover {
+    background-color: #5ce0e6;
+    color: black;
+}
+
+/* Footer */
+footer {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
