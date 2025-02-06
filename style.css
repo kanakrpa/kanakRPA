@@ -10,7 +10,7 @@ html, body {
 }
 body {
     font-family: Arial, sans-serif;
-    font-size: 18px;
+    font-size: 1.125rem;
     margin: 0;
     padding: 0;
     background-color: #fffafa;
@@ -19,7 +19,7 @@ body {
 
 @media screen and (max-width: 768px) {
     body {
-        font-size: 16px;
+        font-size: 12px;
         margin: 0;
         padding: 0;
         overflow-x: hidden;
@@ -61,7 +61,7 @@ body {
 
 
     nav ul li a {
-        font-size: 1rem;
+        font-size: .8125rem;
         padding: 10px;
         display: block;
         width: 100%;
@@ -73,13 +73,13 @@ body {
     }
 
     .hero h1{
-        font-size: 5px;
+        font-size:  30px !important;
         padding-top: 20%;
         padding-bottom: 15px;
     }
 
     .hero p {
-        font-size: 13px !important; 
+        font-size: .8125rem !important; 
         margin-bottom: 10px;
     }
     .beneficio-container {
@@ -98,6 +98,7 @@ body {
     .info{
     }
     .info p{
+        font-size: 13px !important;
         text-align: justify;
     }
 
@@ -180,13 +181,13 @@ nav ul li a {
 /* Hero */
 .hero {
     text-align: center;
-    padding-top: 20%;
+    padding-top: 22%;
     padding-bottom: 10%;
     color: white;
 }
 .hero h1{
     padding-bottom: 15px;
-    font-size: 46px;
+    font-size: 70px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .hero p{
@@ -220,7 +221,12 @@ nav ul li a {
 
 .info h3{
     font-style: italic;
-    font-weight: 10px; 
+    font-weight: .625rem; 
+}
+
+.info p{
+    margin-top: 35px;
+    font-size: 1.125rem;
 }
 
 .beneficios{
