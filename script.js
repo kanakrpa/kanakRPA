@@ -1,9 +1,4 @@
-document.getElementById("descubrir-btn").addEventListener("click", function() {
-    alert("¡Bienvenido a Kanak! Descubre cómo podemos optimizar tu empresa.");
-});
-
-// Formulario de contacto
-document.getElementById("contacto-form").addEventListener("submit", function(event) {
+document.getElementById("contacto-form").addEventListener("submit", async function(event) {
     event.preventDefault();
 
     let nombre = document.getElementById("nombre").value;
@@ -11,8 +6,18 @@ document.getElementById("contacto-form").addEventListener("submit", function(eve
     let mensaje = document.getElementById("mensaje").value;
 
     if (nombre && email && mensaje) {
-        document.getElementById("mensaje-confirmacion").innerText = "¡Gracias por tu mensaje, " + nombre + "! Te responderemos pronto.";
-        document.getElementById("contacto-form").reset();
+        let respuesta = await fetch("https://script.google.com/macros/s/AKfycbwmRFAyFiQIAtgIZ9CaP106LM0gttDMGXoNtKhEQozIE13y16xb-EMCyLdCwqomO7-2ZQ/exec", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ nombre, email, mensaje })
+        });
+
+        if (respuesta.ok) {
+            document.getElementById("mensaje-confirmacion").innerText = "¡Gracias por tu mensaje, " + nombre + "! Te responderemos pronto.";
+            document.getElementById("contacto-form").reset();
+        } else {
+            alert("Error al enviar datos.");
+        }
     } else {
         alert("Por favor, completa todos los campos.");
     }

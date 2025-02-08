@@ -83,7 +83,6 @@ body {
         margin-bottom: 10px;
     }
     .beneficio-container {
-        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
