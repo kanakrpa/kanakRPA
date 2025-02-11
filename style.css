@@ -83,19 +83,25 @@ body {
         margin-bottom: 10px;
     }
     .beneficio-container {
-        display: flex;
-        flex-direction: column;
+        flex-direction: column; /* Coloca los elementos en una sola columna en móviles */
         align-items: center;
-        gap: 10px;
+        gap: 5px;
     }
 
     .beneficio {
-        width: 20%;  /* Ajusta el ancho de los beneficios */
-        max-width: 350px;
-        text-align: center;
+        width: 90%; /* Los elementos ocupan todo el ancho en móviles */
+        max-width: 100%;
+        padding: 8px 8px 8px !important;
     }
-    .info{
+
+    .beneficio-container div:nth-child(2){
+        padding-bottom: 10px !important;
     }
+    .beneficio-container div:nth-child(3){
+        padding-top: 20px !important;
+    }
+
+
     .info p{
         font-size: 13px !important;
         text-align: justify;
@@ -110,13 +116,34 @@ body {
         width: 100%;
         padding: 15px;
     }
+
+
+    .container{
+        margin-top: 20% !important;
+        width: 90% !important;
+    }
+
+    .title {
+        font-size: 22px !important; /* Reducir el tamaño del título en móviles */
+    }
+
+    .container p{
+        font-size: 16px;
+    };
+    .button {
+        font-size: 10px;
+        margin: 0%;
+        padding: 0% !important;
+    }
+
+    .cards img, .cards2 img {
+        width:  90% !important;/* Ajustar tamaño de la imagen */
+        height: auto;
+        margin: auto;
+    }
 }
 
 
-img {
-    max-width: 100%;
-    height: auto;
-}
 
 /* Encabezado */
 header {
@@ -221,6 +248,7 @@ nav ul li a {
 .info h3{
     font-style: italic;
     font-weight: .625rem; 
+    color: #003e8f;
 }
 
 .info p{
@@ -228,60 +256,115 @@ nav ul li a {
     font-size: 1.125rem;
 }
 
-.beneficios{
-    justify-self: center;
-    justify-items: center;
-    width: 80%;
-}
-.hola{
-    background-color: #fffafa;
-}
-.beneficio-container {
-    width: 900px;
-    height: 100%;
-    padding-bottom: 80px;
+.beneficios {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    gap: 80px;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.beneficio-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Asegura que haya dos elementos por fila */
+    gap: 40px;
+    width: 100%;
+    max-width: 900px;
+    place-items: center; /* Centra los elementos dentro de cada celda del grid */
+    text-align: center;
 }
 
 .beneficio {
     background: #f6f6f6;
-    padding: 80px 30px 30px 30px;
-    height: 30%;
+    padding: 60px 20px 30px;
     border-radius: 5px;
-    width: calc(50% - 10px);
-    max-width: 250px; 
+    max-width: 250px;
     text-align: center;
-    border: slategray;
+    color: #003e8f;
 }
 
-.beneficio:nth-child(2){
-    padding-bottom: 40px;
+.beneficio p:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
 }
 
-.beneficio:nth-child(3){
-    padding-bottom: 60px;
-}
-
-
-.beneficio h4{
+.beneficio h4 {
     color: #003e8f;
     padding-bottom: 8px;
 }
-.beneficio p{
+
+.beneficio p {
     line-height: 1.6;
 }
+
 .beneficio p:hover {
-    transform: scale(1.10);
-    color: #003e8f;
+    color: #082c5c;
 }
-.beneficio img{
+
+.beneficio img {
     background-color: #ffffff;
     width: 50px;
-    border-radius: 28px;
+    border-radius: 50%;
 }
+
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%; /* Más ancho en pantallas pequeñas */
+    margin: 8% auto;
+    gap: 20px; /* Espacio entre elementos */
+}
+
+.reverse {
+    flex-direction: row-reverse; /* Cambia el orden de las secciones en la segunda container */
+}
+
+.text-content,.text-content2 {
+    width: 50%; /* Asegura que cada contenedor ocupe la mitad */
+}
+
+.text-content2 {
+    text-align: right;
+}
+
+.title {
+    color: #003e8f;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.container, .reverse p{
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #62eef6;
+    color: #000;
+    font-weight: bold;
+    padding: 4px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Centrando las imágenes */
+.cards, .cards2 {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    width: 50%; /* Mantener el mismo ancho que el texto */
+}
+
+.cards img, .cards2 img {
+    max-width: 350px;
+    height: auto;
+}
+
 .contacto {
     text-align: center;
     padding: 50px;
