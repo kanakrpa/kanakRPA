@@ -5,7 +5,7 @@ document.getElementById('contacto-form').addEventListener('submit', function(e) 
   const email = document.getElementById('email').value;
   const mensaje = document.getElementById('mensaje').value;
 
-  fetch("https://script.google.com/macros/s/TU_WEB_APP_URL/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbxYRBD0B7L9gYc1u2sLps6HOD-51HHlJDxZStiE3tbr02hTthhIBsEdjfHVyeOIfn5M4A/exec", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded"
