@@ -1,4 +1,3 @@
-
 document.getElementById("contacto-form").addEventListener("submit", function(event) {
     event.preventDefault(); // Detiene el envío automático
 
@@ -27,26 +26,34 @@ document.getElementById("contacto-form").addEventListener("submit", function(eve
     }
 
     // Enviar datos al Web App de Google Apps Script
-    const formData = new FormData();
-    formData.append("nombre", nombre);
-    formData.append("email", email);
-    formData.append("mensaje", mensaje);
-
-    const url = "https://script.google.com/macros/s/AKfycbxFpWrt6ZHtQM2xyUb2by97jUUJkbtMaadwJBgQuGfMa0U7pcdVmklRGKMOpllYgdi_rg/exec"; // <-- Reemplaza con tu URL real
+    const url = "https://script.google.com/macros/s/AKfycbyxYWd7mpD8KUpwhx8jjStGWvXMrLbVSPdK0r2sJixmT_UqRsWNvw5_u_mSL5B-srF_xg/exec"; // <-- Reemplaza con tu URL real
 
     fetch(url, {
-        method: "POST",
-        body: formData
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            nombre: nombre,
+            email: email,
+            mensaje: mensaje
+        })
     })
-    .then(response => response.text())
-    .then(result => {
-        mensajeExito.textContent = "Mensaje enviado correctamente.";
-        mensajeExito.style.color = "green";
-        document.getElementById("contacto-form").reset();
+    .then(response => response.json())
+    .then(data => {
+        if(data.result === "success") {
+            mensajeExito.textContent = "¡Mensaje enviado con éxito!";
+            mensajeExito.style.color = "green";
+            // Opcional: limpiar formulario
+            document.getElementById("contacto-form").reset();
+        } else {
+            mensajeExito.textContent = "Error al enviar mensaje: " + data.message;
+            mensajeExito.style.color = "red";
+        }
     })
     .catch(error => {
-        mensajeExito.textContent = "Ocurrió un error al enviar el mensaje.";
+        console.error('Error:', error);
+        mensajeExito.textContent = "Error en la comunicación con el servidor.";
         mensajeExito.style.color = "red";
-        console.error("Error:", error);
     });
 });
