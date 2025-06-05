@@ -26,7 +26,7 @@ document.getElementById("contacto-form").addEventListener("submit", function(eve
     }
 
     // Enviar datos al Web App de Google Apps Script
-    const url = "https://script.google.com/macros/s/AKfycbyxYWd7mpD8KUpwhx8jjStGWvXMrLbVSPdK0r2sJixmT_UqRsWNvw5_u_mSL5B-srF_xg/exec"; // <-- Reemplaza con tu URL real
+    const url = "https://script.google.com/macros/s/AKfycbx-HwLAMpZjoWOT_avFvPXo6C67a6XcVPuXdWrHnxe_fMw4P6IUQpc8vq7k6ovuKx1WYw/exec"; // <-- Reemplaza con tu URL real
 
     fetch(url, {
         method: 'POST',
