@@ -336,9 +336,8 @@ nav ul li a {
     margin-bottom: 20px;
 }
 
-.container, .reverse p{
-    text-align: justify;
-    margin-bottom: 15px;
+#reverse {
+    direction: rtl;
 }
 
 .button {

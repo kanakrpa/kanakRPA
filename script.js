@@ -1,35 +1,52 @@
+
 document.getElementById("contacto-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita el envío por defecto
+    event.preventDefault(); // Detiene el envío automático
 
-    let nombre = document.getElementById("nombre").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let mensaje = document.getElementById("mensaje").value.trim();
-    let mensajeExito = document.getElementById("mensaje-confirmacion"); // ID correcto
+    const nombre = document.getElementById("nombre").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const mensaje = document.getElementById("mensaje").value.trim();
+    const mensajeExito = document.getElementById("mensaje-confirmacion");
+    const reverseP = document.getElementById("reverse"); // Solo si existe este ID
+    if (reverseP) {
+      reverseP.setAttribute("dir", "rtl");
+    }
 
-    // Validación de campos vacíos
+    // Validar campos vacíos
     if (!nombre || !email || !mensaje) {
         mensajeExito.textContent = "Por favor, completa todos los campos.";
         mensajeExito.style.color = "red";
         return;
     }
 
-    // Validación de email con expresión regular
-    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Validar correo electrónico
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         mensajeExito.textContent = "Por favor, ingresa un correo válido.";
         mensajeExito.style.color = "red";
         return;
     }
 
-    // Guardar en localStorage
-    let contactos = JSON.parse(localStorage.getItem("contactos")) || [];
-    contactos.push({ nombre, email, mensaje });
-    localStorage.setItem("contactos", JSON.stringify(contactos));
+    // Enviar datos al Web App de Google Apps Script
+    const formData = new FormData();
+    formData.append("nombre", nombre);
+    formData.append("email", email);
+    formData.append("mensaje", mensaje);
 
-    // Mostrar mensaje de éxito con el nombre del usuario
-    mensajeExito.textContent = `¡Gracias, ${nombre}! Tus datos han sido enviado con éxito.`;
-    mensajeExito.style.color = "black";
+    const url = "https://script.google.com/macros/s/AKfycbxFpWrt6ZHtQM2xyUb2by97jUUJkbtMaadwJBgQuGfMa0U7pcdVmklRGKMOpllYgdi_rg/exec"; // <-- Reemplaza con tu URL real
 
-    // Limpiar el formulario después de enviar
-    document.getElementById("contacto-form").reset();
+    fetch(url, {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(result => {
+        mensajeExito.textContent = "Mensaje enviado correctamente.";
+        mensajeExito.style.color = "green";
+        document.getElementById("contacto-form").reset();
+    })
+    .catch(error => {
+        mensajeExito.textContent = "Ocurrió un error al enviar el mensaje.";
+        mensajeExito.style.color = "red";
+        console.error("Error:", error);
+    });
 });
